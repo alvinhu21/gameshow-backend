@@ -100,11 +100,13 @@ class GameSessionTest {
     }
 
     @Test
-    void theHostChoosesBetweenOneAndFiveOtherPlayers() {
-        assertThatThrownBy(() -> session.updateSeats("host1", List.of())).isInstanceOf(InvalidSeatsException.class);
+    void theHostChoosesBetweenZeroAndFiveOtherPlayers() {
         assertThatThrownBy(() -> session.updateSeats("host1", Collections.nCopies(6, ai(""))))
                 .isInstanceOf(InvalidSeatsException.class);
         assertThatThrownBy(() -> session.updateSeats("host1", null)).isInstanceOf(InvalidSeatsException.class);
+
+        session.updateSeats("host1", List.of());
+        assertThat(session.seatViews()).isEmpty();
 
         session.updateSeats("host1", Collections.nCopies(5, ai("")));
         assertThat(session.seatViews()).hasSize(5);
