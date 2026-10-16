@@ -1,19 +1,21 @@
 package com.gameShows.controllers;
 
-import org.springframework.web.bind.annotation.*;
-
 import com.gameShows.models.shared.Game;
 import com.gameShows.models.shared.Player;
 import com.gameShows.models.wof.Puzzle;
+import com.gameShows.models.wof.Wedge;
 import com.gameShows.services.WheelOfFortuneService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 @RestController
 @RequestMapping("/wheelOfFortune")
-@CrossOrigin(origins = "*")
 public class WheelOfFortuneController {
 
     private final WheelOfFortuneService service;
@@ -22,32 +24,32 @@ public class WheelOfFortuneController {
         this.service = service;
     }
 
-    @GetMapping(value = "/puzzles")
-    public List<Puzzle> getPuzzles(@RequestParam(name = "category", required = false) String category) {
-        if (category != null && !category.isEmpty()) {
-            List<Puzzle> puzzles = this.service.getPuzzlesByCategory(category);
-            if (puzzles.isEmpty()) {
-                return this.service.getAllPuzzles();
-            } else {
-                return puzzles;
-            }
-        }
+    @GetMapping("/puzzles")
+    public ResponseEntity<List<Puzzle>> getPuzzles(@RequestParam(name = "category", required = false) String category) {
+        List<Puzzle> puzzles = (category == null || category.isBlank())
+                ? service.getAllPuzzles()
+                : service.getPuzzlesByCategory(category);
 
-        return this.service.getAllPuzzles();
+        return ResponseEntity.ok(puzzles);
     }
 
-    @GetMapping(value = "/categories")
-    public Set<String> getAllCategories() {
-        return this.service.getAllCategories();
+    @GetMapping("/wheel")
+    public ResponseEntity<List<Wedge>> getWheel(@RequestParam(name = "round", defaultValue = "1") int roundNumber) {
+        return ResponseEntity.ok(service.getWheel(roundNumber));
     }
 
-    @GetMapping(value = "/games")
-    public List<Game> getAllGames() {
-        return this.service.getAllGames();
+    @GetMapping("/categories")
+    public ResponseEntity<Set<String>> getAllCategories() {
+        return ResponseEntity.ok(service.getAllCategories());
     }
 
-    @GetMapping(value = "/players")
-    public List<Player> getAllPlayers() {
-        return this.service.getAllPlayers();
+    @GetMapping("/games")
+    public ResponseEntity<List<Game>> getAllGames() {
+        return ResponseEntity.ok(service.getAllGames());
+    }
+
+    @GetMapping("/players")
+    public ResponseEntity<List<Player>> getAllPlayers() {
+        return ResponseEntity.ok(service.getAllPlayers());
     }
 }

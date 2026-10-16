@@ -1,0 +1,56 @@
+{
+  "id": "us-presidents",
+  "description": "Every person to serve as U.S. president (Cleveland and Trump once each), grouped by era. Aliases are full names, initials and common short forms - never a bare surname, which could mean anyone.",
+  "entries": [
+    { "name": "George Washington", "group": "Founding era" },
+    { "name": "John Adams", "group": "Founding era" },
+    { "name": "Thomas Jefferson", "group": "Founding era" },
+    { "name": "James Madison", "group": "Founding era" },
+    { "name": "James Monroe", "group": "Founding era" },
+    { "name": "John Quincy Adams", "group": "Founding era" },
+
+    { "name": "Andrew Jackson", "group": "Antebellum and Civil War" },
+    { "name": "Martin Van Buren", "group": "Antebellum and Civil War" },
+    { "name": "William Henry Harrison", "group": "Antebellum and Civil War", "aliases": ["William H. Harrison"] },
+    { "name": "John Tyler", "group": "Antebellum and Civil War" },
+    { "name": "James K. Polk", "group": "Antebellum and Civil War", "aliases": ["James Polk", "James Knox Polk"] },
+    { "name": "Zachary Taylor", "group": "Antebellum and Civil War" },
+    { "name": "Millard Fillmore", "group": "Antebellum and Civil War" },
+    { "name": "Franklin Pierce", "group": "Antebellum and Civil War" },
+    { "name": "James Buchanan", "group": "Antebellum and Civil War" },
+    { "name": "Abraham Lincoln", "group": "Antebellum and Civil War", "aliases": ["Abe Lincoln"] },
+    { "name": "Andrew Johnson", "group": "Antebellum and Civil War" },
+
+    { "name": "Ulysses S. Grant", "group": "Gilded Age and Progressive Era", "aliases": ["Ulysses Grant", "Ulysses Simpson Grant"] },
+    { "name": "Rutherford B. Hayes", "group": "Gilded Age and Progressive Era", "aliases": ["Rutherford Hayes", "Rutherford Birchard Hayes"] },
+    { "name": "James A. Garfield", "group": "Gilded Age and Progressive Era", "aliases": ["James Garfield", "James Abram Garfield"] },
+    { "name": "Chester A. Arthur", "group": "Gilded Age and Progressive Era", "aliases": ["Chester Arthur", "Chester Alan Arthur"] },
+    { "name": "Grover Cleveland", "group": "Gilded Age and Progressive Era", "aliases": ["Stephen Grover Cleveland"] },
+    { "name": "Benjamin Harrison", "group": "Gilded Age and Progressive Era" },
+    { "name": "William McKinley", "group": "Gilded Age and Progressive Era" },
+    { "name": "Theodore Roosevelt", "group": "Gilded Age and Progressive Era", "aliases": ["Teddy Roosevelt", "Theodore Roosevelt Jr."] },
+    { "name": "William Howard Taft", "group": "Gilded Age and Progressive Era", "aliases": ["William H. Taft", "William Taft"] },
+
+    { "name": "Woodrow Wilson", "group": "World wars", "aliases": ["Thomas Woodrow Wilson"] },
+    { "name": "Warren G. Harding", "group": "World wars", "aliases": ["Warren Harding", "Warren Gamaliel Harding"] },
+    { "name": "Calvin Coolidge", "group": "World wars", "aliases": ["John Calvin Coolidge"] },
+    { "name": "Herbert Hoover", "group": "World wars", "aliases": ["Herbert C. Hoover", "Herbert Clark Hoover"] },
+    { "name": "Franklin D. Roosevelt", "group": "World wars", "aliases": ["FDR", "Franklin Roosevelt", "Franklin Delano Roosevelt"] },
+    { "name": "Harry S. Truman", "group": "World wars", "aliases": ["Harry Truman"] },
+
+    { "name": "Dwight D. Eisenhower", "group": "Cold War", "aliases": ["Dwight Eisenhower", "Dwight David Eisenhower"] },
+    { "name": "John F. Kennedy", "group": "Cold War", "aliases": ["JFK", "John Kennedy", "John Fitzgerald Kennedy"] },
+    { "name": "Lyndon B. Johnson", "group": "Cold War", "aliases": ["LBJ", "Lyndon Johnson", "Lyndon Baines Johnson"] },
+    { "name": "Richard Nixon", "group": "Cold War", "aliases": ["Richard M. Nixon", "Richard Milhous Nixon"] },
+    { "name": "Gerald Ford", "group": "Cold War", "aliases": ["Gerald R. Ford", "Gerald Rudolph Ford"] },
+    { "name": "Jimmy Carter", "group": "Cold War", "aliases": ["James Earl Carter", "James Earl Carter Jr."] },
+    { "name": "Ronald Reagan", "group": "Cold War", "aliases": ["Ronald W. Reagan", "Ronald Wilson Reagan"] },
+    { "name": "George H. W. Bush", "group": "Cold War", "aliases": ["George Herbert Walker Bush", "George Bush Sr."] },
+
+    { "name": "Bill Clinton", "group": "Modern era", "aliases": ["William Jefferson Clinton", "William J. Clinton"] },
+    { "name": "George W. Bush", "group": "Modern era", "aliases": ["George Walker Bush"] },
+    { "name": "Barack Obama", "group": "Modern era", "aliases": ["Barack H. Obama", "Barack Hussein Obama"] },
+    { "name": "Donald Trump", "group": "Modern era", "aliases": ["Donald J. Trump", "Donald John Trump"] },
+    { "name": "Joe Biden", "group": "Modern era", "aliases": ["Joseph Biden", "Joseph R. Biden", "Joseph Robinette Biden"] }
+  ]
+}

@@ -3,50 +3,52 @@ package com.gameShows.services;
 import com.gameShows.models.shared.Game;
 import com.gameShows.models.shared.Player;
 import com.gameShows.models.wof.Puzzle;
+import com.gameShows.models.wof.Wedge;
 import com.gameShows.repositories.wof.WheelOfFortuneGameRepository;
 import com.gameShows.repositories.wof.WheelOfFortunePlayerRepository;
 import com.gameShows.repositories.wof.WheelOfFortunePuzzleRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class WheelOfFortuneService {
 
-    private static final Logger logger = LoggerFactory.getLogger(WheelOfFortuneService.class);
-    private final WheelOfFortunePlayerRepository wofPlayerRepository;
-    private final WheelOfFortunePuzzleRepository wofPuzzleRepository;
-    private final WheelOfFortuneGameRepository wofGameRepository;
+    private final WheelOfFortunePlayerRepository playerRepository;
+    private final WheelOfFortunePuzzleRepository puzzleRepository;
+    private final WheelOfFortuneGameRepository gameRepository;
 
-    public WheelOfFortuneService(WheelOfFortunePuzzleRepository wofPuzzleRepository,
-            WheelOfFortunePlayerRepository wofPlayerRepository,
-            WheelOfFortuneGameRepository wofGameRepository) {
-        this.wofPlayerRepository = wofPlayerRepository;
-        this.wofPuzzleRepository = wofPuzzleRepository;
-        this.wofGameRepository = wofGameRepository;
+    public WheelOfFortuneService(
+            WheelOfFortunePuzzleRepository puzzleRepository,
+            WheelOfFortunePlayerRepository playerRepository,
+            WheelOfFortuneGameRepository gameRepository) {
+        this.playerRepository = playerRepository;
+        this.puzzleRepository = puzzleRepository;
+        this.gameRepository = gameRepository;
     }
 
     public List<Puzzle> getPuzzlesByCategory(String category) {
-        return this.wofPuzzleRepository.getPuzzlesByCategory(category);
+        return puzzleRepository.getPuzzlesByCategory(category);
     }
 
     public List<Puzzle> getAllPuzzles() {
-        return this.wofPuzzleRepository.getAllPuzzles();
+        return puzzleRepository.getAllPuzzles();
     }
 
     public Set<String> getAllCategories() {
-        return this.wofPuzzleRepository.getAllCategories();
+        return puzzleRepository.getAllCategories();
     }
 
     public List<Game> getAllGames() {
-        return this.wofGameRepository.getAllGames();
+        return gameRepository.getAllGames();
     }
 
     public List<Player> getAllPlayers() {
-        return this.wofPlayerRepository.getAllPlayers();
+        return playerRepository.getAllPlayers();
     }
 
+    public List<Wedge> getWheel(int roundNumber) {
+        return Wedge.buildSyndicatedWheel(roundNumber);
+    }
 }

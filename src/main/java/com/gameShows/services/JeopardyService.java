@@ -3,55 +3,51 @@ package com.gameShows.services;
 import com.gameShows.models.jeopardy.Clue;
 import com.gameShows.models.shared.Game;
 import com.gameShows.models.shared.Player;
-import com.gameShows.repositories.jeopardy.JeopardyPlayerRepository;
 import com.gameShows.repositories.jeopardy.JeopardyClueRepository;
 import com.gameShows.repositories.jeopardy.JeopardyGameRepository;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.gameShows.repositories.jeopardy.JeopardyPlayerRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class JeopardyService {
 
-    private static final Logger logger = LoggerFactory.getLogger(JeopardyService.class);
-    private final JeopardyPlayerRepository jPlayerRepository;
-    private final JeopardyClueRepository jClueRepository;
-    private final JeopardyGameRepository jGameRepository;
+    private final JeopardyPlayerRepository playerRepository;
+    private final JeopardyClueRepository clueRepository;
+    private final JeopardyGameRepository gameRepository;
 
-    public JeopardyService(JeopardyClueRepository jClueRepository,
-            JeopardyPlayerRepository jPlayerRepository,
-            JeopardyGameRepository jGameRepository) {
-        this.jPlayerRepository = jPlayerRepository;
-        this.jClueRepository = jClueRepository;
-        this.jGameRepository = jGameRepository;
+    public JeopardyService(
+            JeopardyClueRepository clueRepository,
+            JeopardyPlayerRepository playerRepository,
+            JeopardyGameRepository gameRepository) {
+        this.playerRepository = playerRepository;
+        this.clueRepository = clueRepository;
+        this.gameRepository = gameRepository;
     }
 
     public List<Clue> getCluesByCategory(String category) {
-        return this.jClueRepository.getCluesByCategory(category);
+        return clueRepository.getCluesByCategory(category);
     }
 
     public List<Clue> getAllClues() {
-        return this.jClueRepository.getAllClues();
+        return clueRepository.getAllClues();
     }
 
     public Set<String> getAllCategories() {
-        return this.jClueRepository.getAllCategories();
+        return clueRepository.getAllCategories();
     }
 
     public Set<String> getAllResponses() {
-        return this.jClueRepository.getAllResponses();
+        return clueRepository.getAllResponses();
     }
 
     public List<Game> getAllGames() {
-        return this.jGameRepository.getAllGames();
+        return gameRepository.getAllGames();
     }
 
     public List<Player> getAllPlayers() {
-        return this.jPlayerRepository.getAllPlayers();
+        return playerRepository.getAllPlayers();
     }
-
 }
